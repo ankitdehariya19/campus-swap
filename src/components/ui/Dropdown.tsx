@@ -43,8 +43,8 @@ export function Dropdown({
         className={`
           flex h-11 w-full items-center justify-between gap-2.5 rounded-xl border px-3.5 
           text-sm font-medium transition-all duration-150 outline-none
-          ${isOpen 
-            ? "border-gray-600 ring-2 ring-white/10 bg-[#171717]" 
+          ${isOpen
+            ? "border-gray-600 ring-2 ring-white/10 bg-[#171717]"
             : "border-[#262626] bg-[#171717] text-gray-400 hover:border-gray-500 hover:text-white"
           }
         `}
@@ -64,7 +64,7 @@ export function Dropdown({
       </button>
 
       {isOpen && (
-        <div className="absolute top-[calc(100%+8px)] left-0 z-50 w-full min-w-[160px] overflow-hidden rounded-xl border border-[#262626] bg-[#171717] shadow-xl animate-in fade-in zoom-in duration-150">
+        <div className="absolute top-[calc(100%+8px)] left-0 z-40 w-full min-w-[160px] overflow-hidden rounded-xl border border-[#262626] bg-[#171717] shadow-xl animate-in fade-in zoom-in duration-150">
           <div className="p-1.5 flex flex-col gap-0.5">
             {options.map((option) => (
               <button

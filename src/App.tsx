@@ -1,11 +1,16 @@
-import "./App.css";
-import { ProductListing } from "./components/ProductList";
+import { Routes, Route } from "react-router-dom";
+import { RootLayout } from "./layouts/RootLayout";
+import { HomePage } from "./pages/HomePage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-white/10 overflow-x-hidden">
-      <ProductListing />
-    </div>
+    <Routes>
+      <Route element={<RootLayout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }
 

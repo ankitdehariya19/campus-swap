@@ -7,30 +7,8 @@ interface Props {
   onBuyNow: (product: Product) => void;
 }
 
-function Stars({ rating }: { rating: number }) {
-  return (
-    <div className="flex items-center gap-0.5">
-      {[1, 2, 3, 4, 5].map((i) => (
-        <span
-          key={i}
-          className={`text-[12px] ${i <= Math.round(rating) ? "text-amber-400" : "text-neutral-700"}`}
-        >
-          ★
-        </span>
-      ))}
-      <span className="text-[11px] font-medium text-neutral-500 ml-1.5 mt-0.5">
-        {rating.toFixed(1)}
-      </span>
-    </div>
-  );
-}
-
 export function ProductCard({ product, onBuyNow }: Props) {
   const [liked, setLiked] = useState(false);
-
-  const discount = Math.round(
-    (1 - product.price / product.originalPrice) * 100,
-  );
 
   const label = product.condition.charAt(0).toUpperCase() + product.condition.slice(1);
 
@@ -44,20 +22,15 @@ export function ProductCard({ product, onBuyNow }: Props) {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-85 group-hover:opacity-100"
         />
 
-
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
           <span className={`text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full border backdrop-blur-md shadow-sm
-            ${product.condition === 'new' ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' :
-              product.condition === 'used' ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' :
-                'bg-sky-500/20 text-sky-300 border-sky-500/30'}`}
+            ${product.condition === 'new' 
+              ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' 
+              : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+            }`}
           >
             {label}
           </span>
-          {discount > 0 && (
-            <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-white text-black shadow-sm">
-              {discount}% OFF
-            </span>
-          )}
         </div>
 
         <button
@@ -87,18 +60,8 @@ export function ProductCard({ product, onBuyNow }: Props) {
           </h3>
         </div>
 
-        <div className="flex items-center justify-between">
-          <Stars rating={product.rating} />
-          <span className="text-[11px] font-medium text-neutral-600">
-            {product.reviews.toLocaleString()} reviews
-          </span>
-        </div>
-
         <div className="mt-auto pt-2 flex items-end justify-between">
           <div className="flex flex-col">
-            <span className="text-xs text-neutral-600 line-through font-medium">
-              ₹{product.originalPrice.toLocaleString()}
-            </span>
             <span className="text-xl font-bold text-white tracking-tight">
               ₹{product.price.toLocaleString()}
             </span>

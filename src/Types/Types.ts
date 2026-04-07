@@ -1,5 +1,5 @@
-export type Condition = "new" | "used" | "refurbished";
-export type SortKey = "default" | "price-asc" | "price-desc" | "rating";
+export type Condition = "new" | "used";
+export type SortKey = "default" | "price-asc" | "price-desc";
 export type FilterKey = Condition | "all";
 
 export interface Product {
@@ -7,9 +7,6 @@ export interface Product {
   name: string;
   category: string;
   price: number;
-  originalPrice: number;
   condition: Condition;
-  rating: number;
-  reviews: number;
   image: string;
 }
