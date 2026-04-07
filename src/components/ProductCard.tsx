@@ -37,7 +37,7 @@ export function ProductCard({ product, onBuyNow }: Props) {
   return (
     <article className="group bg-neutral-900/40 border border-neutral-800 rounded-[24px] flex flex-col overflow-hidden transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]">
 
-      <div className="relative aspect-[16/11] overflow-hidden bg-neutral-950">
+      <div className="relative aspect-16/11 overflow-hidden bg-neutral-950">
         <img
           src={product.image}
           alt={product.name}
@@ -47,9 +47,9 @@ export function ProductCard({ product, onBuyNow }: Props) {
 
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
           <span className={`text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full border backdrop-blur-md shadow-sm
-            ${product.condition === 'new' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
-              product.condition === 'used' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' :
-                'bg-sky-500/10 text-sky-400 border-sky-500/20'}`}
+            ${product.condition === 'new' ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' :
+              product.condition === 'used' ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' :
+                'bg-sky-500/20 text-sky-300 border-sky-500/30'}`}
           >
             {label}
           </span>

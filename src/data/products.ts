@@ -10,7 +10,7 @@ export const products: Product[] = [
     condition: "new",
     rating: 4.8,
     reviews: 2341,
-    image: "https://picsum.photos/seed/sony/400/400",
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=1000",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const products: Product[] = [
     condition: "used",
     rating: 4.6,
     reviews: 891,
-    image: "https://picsum.photos/seed/macbook/400/400",
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=1000",
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ export const products: Product[] = [
     condition: "new",
     rating: 4.7,
     reviews: 3120,
-    image: "https://picsum.photos/seed/samsung/400/400",
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=1000",
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ export const products: Product[] = [
     condition: "refurbished",
     rating: 4.5,
     reviews: 512,
-    image: "https://picsum.photos/seed/ipad/400/400",
+    image: "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?auto=format&fit=crop&q=80&w=1000",
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ export const products: Product[] = [
     condition: "new",
     rating: 4.9,
     reviews: 5610,
-    image: "https://picsum.photos/seed/logitech/400/400",
+    image: "https://images.unsplash.com/photo-1527866959252-deab85ef7d1b?auto=format&fit=crop&q=80&w=1000",
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ export const products: Product[] = [
     condition: "used",
     rating: 4.4,
     reviews: 743,
-    image: "https://picsum.photos/seed/dell/400/400",
+    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&q=80&w=1000",
   },
   {
     id: 7,
@@ -76,7 +76,7 @@ export const products: Product[] = [
     condition: "refurbished",
     rating: 4.3,
     reviews: 1287,
-    image: "https://picsum.photos/seed/bose/400/400",
+    image: "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=1000",
   },
   {
     id: 8,
@@ -87,6 +87,6 @@ export const products: Product[] = [
     condition: "new",
     rating: 4.6,
     reviews: 422,
-    image: "https://picsum.photos/seed/canon/400/400",
+    image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=1000",
   },
 ];
