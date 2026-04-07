@@ -42,8 +42,12 @@ export function ProductCard({ product, onBuyNow }: Props) {
   return (
     <div className="bg-white rounded-2xl border border-gray-100 flex flex-col overflow-hidden transition-all duration-150 hover:-translate-y-0.5 hover:border-gray-200 hover:shadow-sm">
 
-      <div className="bg-gray-50 flex items-center justify-center text-4xl aspect-[4/3] select-none">
-        {product.emoji}
+      <div className="relative aspect-[4/3] overflow-hidden group bg-gray-50">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
       </div>
 
 
@@ -75,10 +79,10 @@ export function ProductCard({ product, onBuyNow }: Props) {
 
         <div className="flex items-baseline gap-1.5 mt-auto pt-1">
           <span className="text-lg font-semibold text-gray-900">
-            ${product.price.toLocaleString()}
+            ₹{product.price.toLocaleString()}
           </span>
           <span className="text-xs text-gray-400 line-through">
-            ${product.originalPrice.toLocaleString()}
+            ₹{product.originalPrice.toLocaleString()}
           </span>
         </div>
       </div>

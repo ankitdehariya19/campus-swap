@@ -11,5 +11,5 @@ export interface Product {
   condition: Condition;
   rating: number;
   reviews: number;
-  emoji: string;
+  image: string;
 }
