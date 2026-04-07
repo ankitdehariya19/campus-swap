@@ -44,8 +44,8 @@ export function Dropdown({
           flex h-11 w-full items-center justify-between gap-2.5 rounded-xl border px-3.5 
           text-sm font-medium transition-all duration-150 outline-none
           ${isOpen 
-            ? "border-gray-400 ring-2 ring-gray-900/10 bg-white" 
-            : "border-gray-200 bg-white text-gray-500 hover:border-gray-400 hover:text-gray-900"
+            ? "border-gray-600 ring-2 ring-white/10 bg-[#171717]" 
+            : "border-[#262626] bg-[#171717] text-gray-400 hover:border-gray-500 hover:text-white"
           }
         `}
       >
@@ -53,7 +53,7 @@ export function Dropdown({
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <svg
-          className={`h-4 w-4 transition-transform duration-200 text-gray-400 ${isOpen ? "rotate-180" : ""}`}
+          className={`h-4 w-4 transition-transform duration-200 text-gray-500 ${isOpen ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -64,7 +64,7 @@ export function Dropdown({
       </button>
 
       {isOpen && (
-        <div className="absolute top-[calc(100%+8px)] left-0 z-50 w-full min-w-[160px] overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg animate-in fade-in zoom-in duration-150">
+        <div className="absolute top-[calc(100%+8px)] left-0 z-50 w-full min-w-[160px] overflow-hidden rounded-xl border border-[#262626] bg-[#171717] shadow-xl animate-in fade-in zoom-in duration-150">
           <div className="p-1.5 flex flex-col gap-0.5">
             {options.map((option) => (
               <button
@@ -78,8 +78,8 @@ export function Dropdown({
                   flex w-full items-center px-3 py-2 text-sm font-medium rounded-lg 
                   transition-colors text-left
                   ${value === option.key
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-white text-black"
+                    : "text-gray-400 hover:bg-[#262626] hover:text-white"
                   }
                 `}
               >

@@ -97,16 +97,16 @@ export function ProductListing() {
 
       {filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-center">
-          <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-            <svg className="w-8 h-8 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-16 h-16 bg-[#171717] border border-[#262626] rounded-full flex items-center justify-center mb-4">
+            <svg className="w-8 h-8 text-[#404040]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
-          <p className="text-sm font-medium text-gray-900">No products found</p>
+          <p className="text-sm font-medium text-white">No products found</p>
           <p className="text-[13px] text-gray-500 mt-1">Try adjusting your search or filters</p>
         </div>
       ) : (
-        <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(220px,1fr))]">
+        <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]">
           {filtered.map((p) => (
             <ProductCard key={p.id} product={p} onBuyNow={handleBuyNow} />
           ))}

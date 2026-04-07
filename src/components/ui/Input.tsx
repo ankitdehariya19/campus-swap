@@ -17,13 +17,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           className={`
-            flex h-11 w-full bg-white px-3.5 text-sm ring-offset-white
-            placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 
-            focus-visible:ring-gray-900/10 focus-visible:border-gray-400
+            flex h-11 w-full bg-[#171717] px-3.5 text-sm ring-offset-black
+            text-white placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 
+            focus-visible:ring-white/10 focus-visible:border-gray-600
             disabled:cursor-not-allowed disabled:opacity-50
-            border border-gray-200 rounded-xl transition-all duration-150
+            border border-[#262626] rounded-xl transition-all duration-150
             ${icon ? "pl-10" : ""}
-            ${error ? "border-rose-500 focus-visible:ring-rose-500/10 focus-visible:border-rose-500" : "border-gray-200"}
+            ${error ? "border-rose-500 focus-visible:ring-rose-500/10 focus-visible:border-rose-500" : "border-[#262626]"}
             ${className}
           `}
           {...props}
