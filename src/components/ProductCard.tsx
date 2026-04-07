@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Product } from "../Types/Types";
+import { Button } from "./ui/Button";
 
 interface Props {
   product: Product;
@@ -41,7 +42,6 @@ export function ProductCard({ product, onBuyNow }: Props) {
 
   return (
     <div className="bg-white rounded-2xl border border-gray-100 flex flex-col overflow-hidden transition-all duration-150 hover:-translate-y-0.5 hover:border-gray-200 hover:shadow-sm">
-
       <div className="relative aspect-[4/3] overflow-hidden group bg-gray-50">
         <img
           src={product.image}
@@ -49,7 +49,6 @@ export function ProductCard({ product, onBuyNow }: Props) {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
       </div>
-
 
       <div className="p-4 flex flex-col gap-2.5 flex-1">
         <div className="flex items-center justify-between">
@@ -87,25 +86,21 @@ export function ProductCard({ product, onBuyNow }: Props) {
         </div>
       </div>
 
-
       <div className="px-4 pb-4 flex gap-2">
-        <button
+        <Button
           onClick={() => onBuyNow(product)}
-          className="flex-1 py-2 text-sm font-medium bg-gray-900 text-white rounded-xl hover:bg-gray-700 active:scale-[0.98] transition-all duration-100"
+          fullWidth
         >
           Buy Now
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setLiked((l) => !l)}
+          variant={liked ? "danger" : "outline"}
+          size="icon"
           aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
-          className={`w-9 h-9 flex items-center justify-center rounded-xl border text-sm transition-all duration-100
-            ${liked
-              ? "bg-rose-50 border-rose-200 text-rose-500"
-              : "border-gray-200 text-gray-400 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-400"
-            }`}
         >
           {liked ? "♥" : "♡"}
-        </button>
+        </Button>
       </div>
     </div>
   );

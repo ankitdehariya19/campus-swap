@@ -3,6 +3,9 @@ import { ProductCard } from "./ProductCard";
 import { useDebounce } from "../hooks/useDebounce";
 import { products as PRODUCTS } from "../data/products";
 import type { Product, FilterKey, SortKey } from "../Types/Types";
+import { Input } from "./ui/Input";
+import { Dropdown } from "./ui/Dropdown";
+import { Button } from "./ui/Button";
 
 const FILTER_OPTIONS: { key: FilterKey; label: string }[] = [
   { key: "all", label: "All" },
@@ -53,56 +56,57 @@ export function ProductListing() {
   };
 
   return (
-    <div className="p-5 space-y-4 ">
-      <div className="flex gap-2 ">
-
-        <input
-          className="flex-1 h-10 px-3.5 text-sm border border-gray-200 rounded-xl bg-white
-                     text-gray-900 placeholder-gray-400 outline-none
-                     focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 transition"
-          placeholder="Search products…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <select
-          className="h-10 px-3 text-sm border border-gray-200 rounded-xl bg-white
-                     text-gray-500 outline-none focus:ring-2 focus:ring-gray-900/10 cursor-pointer transition"
+    <div className="p-5 space-y-5">
+      <div className="flex gap-3">
+        <div className="flex-1">
+          <Input
+            placeholder="Search products…"
+            value={query}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
+            icon={
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            }
+          />
+        </div>
+        <Dropdown
+          className="w-40"
+          options={SORT_OPTIONS}
           value={sort}
-          onChange={(e) => setSort(e.target.value as SortKey)}
-        >
-          {SORT_OPTIONS.map((o) => (
-            <option key={o.key} value={o.key}>
-              {o.label}
-            </option>
-          ))}
-        </select>
+          onChange={(val) => setSort(val as SortKey)}
+        />
       </div>
 
       <div className="flex items-center gap-2 flex-wrap">
         {FILTER_OPTIONS.map((f) => (
-          <button
+          <Button
             key={f.key}
             onClick={() => setFilter(f.key)}
-            className={`px-3.5 py-1.5 text-xs font-medium rounded-full border transition-all duration-100
-              ${filter === f.key
-                ? "bg-gray-900 text-white border-gray-900"
-                : "bg-white text-gray-500 border-gray-200 hover:border-gray-400 hover:text-gray-700"
-              }`}
+            variant={filter === f.key ? "primary" : "outline"}
+            size="sm"
+            className="rounded-full"
           >
             {f.label}
-          </button>
+          </Button>
         ))}
-        <span className="ml-auto text-xs text-gray-400">
-          {filtered.length} of {PRODUCTS.length} items
+        <span className="ml-auto text-xs font-medium text-gray-400">
+          Showing {filtered.length} items
         </span>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="text-center text-sm text-gray-400 py-12">
-          No products match &quot;{debouncedQuery}&quot;
-        </p>
+        <div className="flex flex-col items-center justify-center py-20 text-center">
+          <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
+            <svg className="w-8 h-8 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <p className="text-sm font-medium text-gray-900">No products found</p>
+          <p className="text-[13px] text-gray-500 mt-1">Try adjusting your search or filters</p>
+        </div>
       ) : (
-        <div className="grid gap-3.5 [grid-template-columns:repeat(auto-fill,minmax(200px,1fr))]">
+        <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(220px,1fr))]">
           {filtered.map((p) => (
             <ProductCard key={p.id} product={p} onBuyNow={handleBuyNow} />
           ))}
